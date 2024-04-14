@@ -1,0 +1,36 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    font-size: 4vw;
+    font-weight: bold;
+}
+.error p,button{
+    margin: 0;
+}
+.mainHeading{
+    margin: 0;
+    font-weight: bolder;
+    font-size: 12vw;
+    background-clip: text;
+        -webkit-text-fill-color: transparent;
+    background-image: url('../../assets/agLijth.jpg');
+}
+
+.error button{
+    font-size: 1vw;
+    padding: 1vw;
+    color: aliceblue;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(72, 72, 224);
+    box-shadow: 5px 4px 4px rgba(72, 72, 224, 0.8);
+}
+
+.error button:hover{
+    cursor: pointer;
+    background-color: rgba(72, 72, 224,0.8);
+    
+}

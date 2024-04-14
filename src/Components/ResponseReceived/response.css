@@ -1,0 +1,51 @@
+.response{
+    padding: 1.5vw;
+}
+
+.contactTable{
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.contactTable table{
+    /* border-spacing: 1vw; */
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 90%;
+    margin: 10px auto;
+    /* margin: 5vh 0 2vh 0; */
+    text-align: left;
+    border-radius: 20px;
+}
+
+.contactTable table th{
+    padding: 2.5vh 1vh 2.5vh 1vh;
+    font-size: 1.1vw;
+    font-weight: bold;
+}
+
+.contactTable table td{
+padding: 2.5vh 1vh 2.5vh 1vh;
+}
+
+.contactTable table>tbody tr:nth-child(odd){
+    padding: 100px;
+    background-color: rgba(158,177,165,0.4);
+    width: 100%;
+}
+
+.contactTable table tr{
+    text-wrap: wrap;
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+
