@@ -32,6 +32,7 @@ export default function UserLogin() {
       password: "",
     });
   };
+
 const submitHandler = async (e) => {
   e.preventDefault();
   try {
@@ -45,9 +46,12 @@ const submitHandler = async (e) => {
       },
       body: JSON.stringify(userDetails),
     });
+    
     const responseData = await response.json();
 
-    console.log(responseData);
+    if(response.ok){
+      initializeForm()
+    }
 
     dispatch(signInSuccess(responseData));
     navigate(`/${currentUser.id}/dashboard/${currentUser.id}`);
