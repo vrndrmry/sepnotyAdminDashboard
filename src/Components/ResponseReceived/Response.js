@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./response.css";
-export default function Response() {
+import { UserContext } from "../../Context/userContext";
 
-  const fetchResponseData = async() =>{
-    await fetch
+export default function Response() {
+  const { userInfo } = useContext(UserContext);
+  const [contactUsData,setContactUsData] = useState([])
+
+  const fetchContactUsData = async () => {
+    const data = await fetch(
+      `http://localhost:8800/${userInfo.userId}/dashboard/${userInfo.userId}/response`,{
+        method:"GET",
+        headers:{
+          "Content-Type": "application/json",
+          credentials:'include'
+        }
+      }
+    )
+    console.log(data)
   }
+
+  useEffect(() => {
+    fetchContactUsData();
+    console.log(contactUsData)
+  },[]);
+
   return (
     <div className="response">
       <h1>Responsed Recieved</h1>

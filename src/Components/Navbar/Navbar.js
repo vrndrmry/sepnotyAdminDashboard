@@ -133,10 +133,10 @@ export default function Navbar() {
       </div>
       <div className="userDetails">
         <img src={adminProfile} alt="user Details" />
-        Sepnoty User
+        {userInfo.username}
       </div>
       <ul>
-        <Link to={`/${userInfo.id}/dashboard`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}`}>
           <li
             className={dashboardStatus ? "active" : null}
             onClick={() => statusHandler("dashboard")}
@@ -148,7 +148,7 @@ export default function Navbar() {
             <span></span>
           </li>
         </Link>
-        <Link to={`/${userInfo.id}/dashboard/article`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/article`}>
           <li
             className={articleStatus ? "active" : null}
             onClick={() => statusHandler("article")}
@@ -162,7 +162,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/blog`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/blog`}>
           <li
             className={blogStatus ? "active" : null}
             onClick={() => statusHandler("blog")}
@@ -176,7 +176,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/career`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/career`}>
           <li
             className={careerStatus ? "active" : null}
             onClick={() => statusHandler("career")}
@@ -190,7 +190,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/report`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/report`}>
           <li
             className={reportStatus ? "active" : null}
             onClick={() => statusHandler("report")}
@@ -204,7 +204,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/project`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/project`}>
           <li
             className={projectStatus ? "active" : null}
             onClick={() => statusHandler("project")}
@@ -219,7 +219,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/event`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/event`}>
           <li
             className={eventStatus ? "active" : null}
             onClick={() => statusHandler("event")}
@@ -233,7 +233,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/response`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/response`}>
           <li
             className={responseStatus ? "active" : null}
             onClick={() => statusHandler("response")}
@@ -247,7 +247,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/users`}>
+        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/users`}>
           <li
             className={userStatus ? "active" : null}
             onClick={() => statusHandler("user")}

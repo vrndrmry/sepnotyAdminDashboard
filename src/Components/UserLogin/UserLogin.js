@@ -11,9 +11,7 @@ export default function UserLogin() {
     password: "",
   });
   const [redirect, setRedirect] = useState(false);
-  const { userInfo,setUserInfo } = useContext(UserContext);
-
-  
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -21,38 +19,44 @@ export default function UserLogin() {
     setUserDetails({ ...userDetails, [name]: value });
   };
 
-  const initializeForm = () =>{
+  const initializeForm = () => {
     setUserDetails({
       username: "",
       password: "",
     });
-  }
+  };
   const submitHandler = async (e) => {
     e.preventDefault();
     const response = await fetch(`http://localhost:8800/login`, {
       method: "POST",
       body: JSON.stringify(userDetails),
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "*",
-        credentials: "include",
+        // "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Origin": "http://localhost:8800",
       },
     });
-
     const responseData = await response.json();
+
+    console.log(responseData);
+
     if (response.status === 200) {
       setRedirect(true);
-      initializeForm()
-      setUserInfo(responseData)
-    }else{
+      console.log(responseData);
       initializeForm();
-      alert("Invalid credentials")
+      setUserInfo(responseData);
+    } else {
+      initializeForm();
+      alert("Invalid credentials");
     }
   };
 
-    if(redirect){
-      return <Navigate to={`/${userInfo.id}/dashboard`}></Navigate>
-    }
+  if (redirect) {
+    return (
+      <Navigate to={`/${userInfo.id}/dashboard/${userInfo.id}`}></Navigate>
+    );
+  }
   return (
     <div className="admin">
       <div className="admincontainer">
