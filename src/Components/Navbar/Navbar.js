@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import "./navbar.css";
 import logo from "../../assets/sepnotyLogo.svg";
 import adminProfile from "../../assets/adminprofile.svg";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../Context/userContext.js";
+import { useSelector } from "react-redux";
+
 export default function Navbar() {
   const [dashboardStatus, setDashboardStatus] = useState(true);
   const [articleStatus, setArticleStatus] = useState(false);
@@ -14,7 +15,7 @@ export default function Navbar() {
   const [responseStatus, setResponseStatus] = useState(false);
   const [userStatus, setUserStatus] = useState(false);
   const [reportStatus, setReportStatus] = useState(false);
-  const {userInfo} = useContext(UserContext)
+  const {currentUser} = useSelector(state=>state.user)
 
   const statusHandler = (type) => {
     switch (type) {
@@ -124,6 +125,7 @@ export default function Navbar() {
       default:
         alert("Wrong option selected");
     }
+    
   };
 
   return (
@@ -133,10 +135,10 @@ export default function Navbar() {
       </div>
       <div className="userDetails">
         <img src={adminProfile} alt="user Details" />
-        {userInfo.username}
+        {currentUser.username}
       </div>
       <ul>
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}`}>
           <li
             className={dashboardStatus ? "active" : null}
             onClick={() => statusHandler("dashboard")}
@@ -148,7 +150,7 @@ export default function Navbar() {
             <span></span>
           </li>
         </Link>
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/article`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/article`}>
           <li
             className={articleStatus ? "active" : null}
             onClick={() => statusHandler("article")}
@@ -162,7 +164,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/blog`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/blog`}>
           <li
             className={blogStatus ? "active" : null}
             onClick={() => statusHandler("blog")}
@@ -176,7 +178,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/career`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/career`}>
           <li
             className={careerStatus ? "active" : null}
             onClick={() => statusHandler("career")}
@@ -190,7 +192,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/report`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/report`}>
           <li
             className={reportStatus ? "active" : null}
             onClick={() => statusHandler("report")}
@@ -204,7 +206,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/project`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/project`}>
           <li
             className={projectStatus ? "active" : null}
             onClick={() => statusHandler("project")}
@@ -219,7 +221,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/event`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/event`}>
           <li
             className={eventStatus ? "active" : null}
             onClick={() => statusHandler("event")}
@@ -233,7 +235,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/response`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/response`}>
           <li
             className={responseStatus ? "active" : null}
             onClick={() => statusHandler("response")}
@@ -247,7 +249,7 @@ export default function Navbar() {
           </li>
         </Link>
 
-        <Link to={`/${userInfo.id}/dashboard/${userInfo.id}/users`}>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}/users`}>
           <li
             className={userStatus ? "active" : null}
             onClick={() => statusHandler("user")}
@@ -260,7 +262,7 @@ export default function Navbar() {
             </span>
           </li>
         </Link>
-        <Link>
+        <Link to={`/${currentUser.id}/dashboard/${currentUser.id}`}>
           <li>
             <span>
               <i className="bi bi-box-arrow-right"></i>Logout
