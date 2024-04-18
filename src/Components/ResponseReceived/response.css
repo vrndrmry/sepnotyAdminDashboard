@@ -41,6 +41,18 @@ padding: 2.5vh 1vh 2.5vh 1vh;
 }
 
 
+.pages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+.btn:disabled{
+    opacity: 0.6;
+    pointer-events: none;
+   
+}
 
 
 
