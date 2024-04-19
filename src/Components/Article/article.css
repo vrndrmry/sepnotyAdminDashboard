@@ -1,1 +1,128 @@
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  border-radius: 35px;
+}
 
+.articleTopSection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.articleTopSection > .articleBtn {
+  color: white;
+
+  background-color: rgb(64, 64, 192, 0.6);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 2.5rem;
+}
+.articleTopSection > .articleBtn:hover {
+  cursor: pointer;
+  background-color: rgb(64, 64, 192, 0.8);
+  transition: all 0.3s;
+}
+h1 {
+  font-size: 2rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #edf2f4;
+  border-radius: 40px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 40px;
+}
+
+.table-wrapper table {
+  margin: 50px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-wrapper table th,
+.table-wrapper table td {
+  padding: 20px;
+  min-width: 75px;
+}
+
+.table-wrapper table th {
+  color: #fff;
+  background: rgb(64, 64, 192, 0.6);
+}
+
+.table-wrapper table tbody tr:nth-of-type(even) {
+  background: rgb(64, 64, 192, 0.6);
+  color: white;
+}
+.table-wrapper table tbody tr:nth-of-type(even) .viewIcon,
+.table-wrapper table tbody tr:nth-of-type(even) .updateIcon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.table-wrapper table tbody tr:nth-of-type(even) .viewIcon:hover,
+.table-wrapper table tbody tr:nth-of-type(even) .updateIcon:hover {
+  color: rgb(63, 51, 229);
+  cursor: pointer;
+}
+.table-wrapper table td:first-child {
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  grid-gap: 10px;
+  text-align: left;
+}
+
+.table-credits {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.viewIcon ,.updateIcon,.deleteIcon{
+  color: black;
+  font-size: 1.2rem;
+}
+.viewIcon:hover ,.updateIcon:hover{
+  color: rgb(99, 90, 228);
+  cursor: pointer;
+}
+.deleteIcon:hover {
+  color: red;
+  cursor: pointer;
+}
+
+
+.actionBtns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.articleImg {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+}

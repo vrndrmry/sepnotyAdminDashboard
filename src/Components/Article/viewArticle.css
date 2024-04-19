@@ -1,0 +1,65 @@
+.viewArticleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  margin: 4rem auto;
+  background: #dadada;
+  padding: 1.5rem;
+  border-radius: 35px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.leftSection {
+  width: 100%;
+  height: 300px;
+}
+
+.articleViewImage {
+  object-fit: cover;
+  height: 100%;
+  width: 90%;
+}
+.articleViewImage:hover{
+    transform: scale(1.1);
+    transition: all .5s;
+}
+
+.rightSection .authorDiv,
+.rightSection .createdAtDiv {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.rightSection  span{
+ 
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.rightSection p{
+    color: gray
+;
+font-weight: 600;
+margin: .5rem 0;
+}
+.rightSection p:hover::selection{
+    color: rgb(151, 151, 215);
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .articleViewImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+   
+  }
+  .rightSection{
+    margin-top: 1rem;
+  }
+}
