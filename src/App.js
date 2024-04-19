@@ -16,6 +16,9 @@ import UserLogin from './Components/UserLogin/UserLogin';
 import { UserContextProvider } from './Context/userContext';
 import UserData from './Components/UserData/UserData';
 import Career from './Components/Career/Career';
+import CreatePost from './pages/CreatePost';
+import UpdatePage from './pages/UpdatePage';
+
 function App() {
   
   return (
@@ -24,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<UserLogin />}></Route>
           <Route path="/:userId/dashboard" element={<Layout />}>
+            
             <Route
             index
               path="/:userId/dashboard/:userId"
@@ -65,6 +69,8 @@ function App() {
             ></Route>
             <Route path="/:userId/dashboard/*" element={<Error />}></Route>
           </Route>
+          <Route path='/createPost' element= {<CreatePost/>}/>
+          <Route path='/updatePost/:id' element= {<UpdatePage/>}/>
           <Route path="/*" element={<Error />}></Route>
         </Routes>
       </UserContextProvider>
