@@ -13,24 +13,28 @@ export default function Response() {
   const [total, setTotal] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(0);
   const fetchContactUsData = async () => {
-    const response = await fetch(
-      `http://localhost:8800/${currentUser.id}/dashboard/${currentUser.id}/response?page=${page}`,
-      {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-
-    setContactUsData(data.recievedData);
-    if (!total) {
-      setTotal(data.total);
-      setItemsPerPage(data.itemsPerPage);
+    try {
+      const response = await fetch(
+        `http://localhost:8800/${currentUser?.id}/dashboard/${currentUser?.id}/response?page=${page}`,
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+  
+      setContactUsData(data.recievedData);
+      
+        setTotal(data.total);
+        setItemsPerPage(data.itemsPerPage);
+    } catch (error) {
+      console.log(error);
     }
+    
   };
 
   const calculateSerialNumber = (index) => {

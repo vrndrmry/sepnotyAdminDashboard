@@ -1,0 +1,66 @@
+.container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 4rem auto;
+    border-radius: 35px;
+    background-color: white;
+}
+.container > .articleForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+}
+.articleForm > label{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.articleInput,.articleTextarea{
+    display: block;
+    padding:.5rem ;
+    width: 100%;
+    margin-top: .5rem;
+}
+.articleInput{
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+}
+.articleTextarea{
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+}
+.articleForm >label:nth-child(4){
+    display: flex;
+    align-items: center;
+    
+}
+.fileIcon{
+    margin-left: 1rem;
+}
+
+.previewImg{
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    display: block;
+}
+.Btn{
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(64, 64, 192, );
+    color: white;
+    font-size: 1.2rem;
+}
+.Btn:disabled{
+    background-color: rgb(64, 64, 192, 0.6);
+    cursor: not-allowed;
+}
