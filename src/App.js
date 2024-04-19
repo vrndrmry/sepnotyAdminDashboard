@@ -19,8 +19,6 @@ import Career from './Components/Career/Career';
 import AddArticle from './Components/Article/AddArticle';
 import UpdateArticle from './Components/Article/UpdateArticle';
 import ViewArticle from './Components/Article/ViewArticle';
-import CreatePost from './pages/CreatePost';
-import UpdatePage from './pages/UpdatePage'
 function App() {
   
   return (
