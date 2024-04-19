@@ -16,6 +16,9 @@ import UserLogin from './Components/UserLogin/UserLogin';
 import { UserContextProvider } from './Context/userContext';
 import UserData from './Components/UserData/UserData';
 import Career from './Components/Career/Career';
+import AddArticle from './Components/Article/AddArticle';
+import UpdateArticle from './Components/Article/UpdateArticle';
+import ViewArticle from './Components/Article/ViewArticle';
 function App() {
   
   return (
@@ -33,6 +36,18 @@ function App() {
             <Route
               path="/:userId/dashboard/:userId/article"
               element={<Article />}
+            ></Route>
+             <Route
+              path="/:userId/dashboard/article/add"
+              element={<AddArticle />}
+            ></Route>
+               <Route
+              path="/:userId/dashboard/article/update/:articleId"
+              element={<UpdateArticle />}
+            ></Route>
+               <Route
+              path="/:userId/dashboard/article/view/:articleId"
+              element={<ViewArticle />}
             ></Route>
             <Route
               path="/:userId/dashboard/:userId/blog"
