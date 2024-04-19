@@ -27,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<UserLogin />}></Route>
           <Route path="/:userId/dashboard" element={<Layout />}>
+            
             <Route
             index
               path="/:userId/dashboard/:userId"
@@ -80,6 +81,8 @@ function App() {
             ></Route>
             <Route path="/:userId/dashboard/*" element={<Error />}></Route>
           </Route>
+          <Route path='/createPost' element= {<CreatePost/>}/>
+          <Route path='/updatePost/:id' element= {<UpdatePage/>}/>
           <Route path="/*" element={<Error />}></Route>
         </Routes>
       </UserContextProvider>

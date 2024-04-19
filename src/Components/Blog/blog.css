@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+header {
+  position: relative;
+  padding: 20px;
+  color: black;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.myblog {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.createb {
+  float: right;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+div.post {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 180px;
+  margin: 5px;
+  padding: 4px;
+}
+
+div.post div.text h3 {
+  margin: 5px;
+  font-size: 1.5rem;
+  padding: 4px;
+}
+
+div.post p.info{
+    margin: 0;
+    color: #888;
+    font-size: .7rem;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+
+div.post p.info span.author{
+    color: #333;
+}
+
+div.post p.summery{
+    margin: 10px 0;
+    line-height: 1.4rem;
+}
+
+
