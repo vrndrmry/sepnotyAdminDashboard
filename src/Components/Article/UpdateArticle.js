@@ -2,6 +2,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./updateArticle.css";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
+import { toast } from "react-toastify";
 const UpdateArticle = () => {
   const location = useLocation();
 
@@ -48,10 +49,11 @@ const UpdateArticle = () => {
         }
       );
       if (!response.ok) {
-        alert("seomething went wrong");
+        toast.error("Error updating article");
         
         return;
       }
+      toast.success("Article updated successfully",{theme:"dark"});
       navigate(`/${userId}/dashboard/${userId}/article`);
     } catch (error) {
       console.log(error.message);

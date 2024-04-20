@@ -36,7 +36,7 @@
     border: 1px solid black;
     outline: none;
 }
-.articleForm >label:nth-child(4){
+.articleForm >label:last-child{
     display: flex;
     align-items: center;
     
@@ -63,4 +63,7 @@
 .Btn:disabled{
     background-color: rgb(64, 64, 192, 0.6);
     cursor: not-allowed;
+}
+input[type="file"]{
+    display: none;
 }

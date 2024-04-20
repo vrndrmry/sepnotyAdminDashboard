@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./addArticle.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-
+import {toast} from 'react-toastify'
 const AddArticle = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const AddArticle = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!title || !content || !imagePreview) {
-      alert("Please fill all the fields");
+      toast.error("Please fill all the fields",{theme: "dark"});
       return;
     }
     const formData = new FormData();
@@ -45,9 +45,10 @@ const AddArticle = () => {
         }
       );
       if (!response.ok) {
-        alert("seomething went wrong");
+        toast.error("Error adding article");
         return;
       }
+      toast.success("Article added successfully",{theme:"dark"});
       navigate(`/${userId}/dashboard/${userId}/article`);
     } catch (error) {
       alert(error.message);
@@ -87,7 +88,7 @@ const AddArticle = () => {
         <label>
           Choose an Image
           <i className="bi bi-card-image fileIcon"></i>
-          <input type="file" hidden onChange={handleImageChange} />
+          <input type="file"  onChange={handleImageChange} />
         </label>
         <button disabled={isPending} className="Btn" type="submit">
          {isPending ?  <Loader/> : "Add"}

@@ -21,6 +21,8 @@ import UpdateArticle from './Components/Article/UpdateArticle';
 import ViewArticle from './Components/Article/ViewArticle';
 import CreatePost from './pages/CreatePost'
 import UpdatePage from './pages/UpdatePage'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   
   return (
@@ -88,6 +90,7 @@ function App() {
           <Route path="/*" element={<Error />}></Route>
         </Routes>
       </UserContextProvider>
+      <ToastContainer />
     </div>
   );
 }
