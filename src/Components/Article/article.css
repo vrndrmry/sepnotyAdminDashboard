@@ -17,13 +17,13 @@
 }
 .articleTopSection > .articleBtn {
   color: white;
-
+padding: 10px;
   background-color: rgb(64, 64, 192, 0.6);
   border-radius: 5px;
   border: none;
   outline: none;
   border-radius: 10px;
-  height: 2.5rem;
+  height: 3rem;
 }
 .articleTopSection > .articleBtn:hover {
   cursor: pointer;
@@ -32,6 +32,7 @@
 }
 h1 {
   font-size: 2rem;
+  text-wrap: nowrap;
 }
 
 .table-wrapper {
@@ -125,4 +126,12 @@ h1 {
   height: 50px;
   object-fit: cover;
   border-radius: 20px;
+}
+
+
+.noArticles{
+  font-size: 2rem;
+  color: red;
+  text-align: center;
+  font-weight: bolder;
 }

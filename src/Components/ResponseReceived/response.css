@@ -10,12 +10,12 @@
 }
 
 .contactTable table{
-    /* border-spacing: 1vw; */
+   
     border-collapse: collapse;
     border-spacing: 0;
     width: 90%;
     margin: 10px auto;
-    /* margin: 5vh 0 2vh 0; */
+   
     text-align: left;
     border-radius: 20px;
 }
@@ -41,18 +41,7 @@ padding: 2.5vh 1vh 2.5vh 1vh;
 }
 
 
-.pages{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
 
-}
-.btn:disabled{
-    opacity: 0.6;
-    pointer-events: none;
-   
-}
 
 
 

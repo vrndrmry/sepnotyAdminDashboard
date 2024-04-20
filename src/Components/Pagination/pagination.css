@@ -1,0 +1,24 @@
+.pages{
+    display: flex;
+    gap: 1rem;
+    width: 30%;
+    margin: auto;
+
+}
+.pages > button{
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:  rgb(64, 64, 192, 0.6);
+    color: white;
+    cursor: pointer
+}
+.pages > button:hover{
+    background:  rgb(64, 64, 192, .8);;
+}
+
+.pages >button:disabled{
+    cursor: not-allowed;
+    pointer-events: none;
+    background: gray;
+}

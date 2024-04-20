@@ -3,10 +3,7 @@ import "./article.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Pagination from "../Pagination/Pagination";
-
-{
-  /* add loading indiactor in buttons all article pages  */
-}
+import {toast} from "react-toastify";
 export default function Article() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
@@ -58,7 +55,11 @@ export default function Article() {
           },
         }
       );
-      if (!response.ok) return;
+      if (!response.ok) {
+        toast.error("Error deleting article");
+        return;
+      }
+      toast.success("Article deleted successfully",{theme:'dark'});
       fetchArticlesData();
     } catch (error) {
       console.log(error);
@@ -75,7 +76,7 @@ export default function Article() {
   };
   useEffect(() => {
     fetchArticlesData();
-  }, [page]);
+  }, [page, total, itemsPerPage]);
   return (
     <div className="container">
       <div className="articleTopSection">
@@ -87,22 +88,23 @@ export default function Article() {
           Want to add ??
         </button>
       </div>
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Title</th>
-              <th>Content</th>
-              <th>Image</th>
-              <th>Author</th>
-              <th>View</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {articles?.length > 0 &&
-              articles.map((article, index) => (
+      {!articles.length && <p className="noArticles">No Articles Yet</p>}
+      {articles?.length > 0 && (
+        <div className="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Author</th>
+                <th>View</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {articles.map((article, index) => (
                 <tr key={article._id}>
                   <td>
                     <span>{calculateSerialNumber(index)}</span>
@@ -110,7 +112,11 @@ export default function Article() {
                   <td>{truncate(article.title)}</td>
                   <td>{truncate(article.content)}</td>
                   <td>
-                    <img className="articleImg" src={article.imageUrl} />
+                    <img
+                      className="articleImg"
+                      src={article.imageUrl}
+                      alt={article.title}
+                    />
                   </td>
                   <td>{article.author}</td>
                   <td>
@@ -145,16 +151,19 @@ export default function Article() {
                   </td>
                 </tr>
               ))}
-          </tbody>
-        </table>
-      </div>
+            </tbody>
+          </table>
+        </div>
+      )}
 
-      <Pagination
-        page={page}
-        handlePreviousPage={handlePreviousPage}
-        handleNextPage={handleNextPage}
-        total={total}
-      />
+      {articles.length > 0 && (
+        <Pagination
+          page={page}
+          handlePreviousPage={handlePreviousPage}
+          handleNextPage={handleNextPage}
+          total={total}
+        />
+      )}
     </div>
   );
 }

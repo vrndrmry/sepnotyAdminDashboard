@@ -39,7 +39,7 @@ const submitHandler = async (e) => {
     dispatch(signInStart());
     const response = await fetch(`http://localhost:8800/login`, {
       method: "POST",
-      // credentials: "include",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Headers": "*",
